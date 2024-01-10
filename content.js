@@ -1,23 +1,14 @@
-// function modifyPageElements() {
-//   console.log("modifyPageElements function called");
-//   const targetElement = document.querySelector("lesson-challenge");
+chrome.storage.onChanged.addListener(function (changes, namespace) {
+  for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
+    if (key === "classModifierEnabled" && newValue === true) {
+      modifyPageClasses();
+    }
+  }
+});
 
-//   if (targetElement) {
-//     console.log("Found targetElement", targetElement);
-//     const elementsToModify = targetElement.querySelectorAll(".row");
-
-//     elementsToModify.forEach((element) => {
-//       const currentClass = element.className;
-//       const newClass = currentClass.replace(/col-lg-\d+/, "col-lg-12");
-//       element.className = newClass;
-//     });
-//   } else {
-//     console.log("targetElement not found");
-//   }
-// }
-
-// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-//   if (request.type === "modifyPage") {
-//     modifyPageElements();
-//   }
-// });
+function modifyPageClasses() {
+  const allClasses = document.querySelectorAll('*[class^="col-lg-"]');
+  allClasses.forEach((el) => {
+    el.className = el.className.replace(/col-lg-\d+/g, "col-lg-12");
+  });
+}

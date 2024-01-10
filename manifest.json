@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Remove Div Extension",
+  "name": "Auto Class Modifier",
   "version": "1.0",
   "description": "Extension PASV",
   "permissions": ["activeTab", "storage", "scripting", "tabs"],
