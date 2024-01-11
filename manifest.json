@@ -3,7 +3,7 @@
   "name": "Auto Class Modifier",
   "version": "1.0",
   "description": "Extension PASV",
-  "permissions": ["activeTab", "storage", "scripting", "tabs"],
+  "permissions": ["activeTab", "storage", "scripting"],
   "action": {
     "icons": {
       "16": "./icons/16x16.png",
@@ -11,9 +11,6 @@
       "128": "./icons/128x128.png"
     },
     "default_popup": "popup.html"
-  },
-  "background": {
-    "service_worker": "background.js" 
   },
   "content_scripts": [
     {
